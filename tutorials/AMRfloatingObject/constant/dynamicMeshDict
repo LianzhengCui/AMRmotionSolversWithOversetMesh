@@ -1,0 +1,141 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dynamicFvMesh       dynamicMotionSolversRefineBalancedFvMesh;
+
+enableBalancing false;
+allowableImbalance 0.15;
+
+adaptCriteria
+{
+    // type fieldBounds;
+    // fieldName alpha.water;
+    // lowerBound 0.001;
+    // upperBound 0.999;
+
+    type composedAdaptCriteria;
+    operation or;
+    criteria
+    (
+        interface // refLvl 4 at the inteface
+        {
+            type fieldBounds;
+            fieldName alpha.water;
+            lowerBound 0.001;
+            upperBound 0.999;
+            nLayer     4;
+        }
+        fluid // refLvl 2 in fluid
+        {
+            type fieldBounds;
+            fieldName alpha.water;
+            lowerBound 0.001;
+            upperBound 0.999;
+            maxCellLevel 2;
+        }
+    );
+}
+// How often to refine
+refineInterval  2;
+
+
+// Have slower than 2:1 refinement
+nBufferLayers   1;
+
+// Refine cells only up to maxRefinement levels
+maxRefinement   2;
+
+// Stop refinement if maxCells reached
+maxCells        20000;
+
+// Flux field and corresponding velocity field. Fluxes on changed
+// faces get recalculated by interpolating the velocity. Use 'none'
+// on surfaceScalarFields that do not need to be reinterpolated.
+correctFluxes
+(
+    (phi none)
+    (nHatf none)
+    (rhoPhi none)
+    (alphaPhi none)
+    //(alphaPhi0 none)
+    //(alphaPhiUn none)
+    (ghf none)
+    (phi0 none)
+    (dVf_ none)
+);
+
+// Write the refinement level as a volScalarField
+dumpLevel       true;
+
+motionSolverLibs   (rigidBodySolidMeshMotion);
+
+motionSolver       rigidBodySolidMotion;
+
+rigidBodySolidMotionCoeffs
+{
+    report          on;
+
+    solver
+    {
+        type Newmark;
+    }
+
+    accelerationRelaxation 0.7;
+
+    bodies
+    {
+        floatingObject
+        {
+            type            cuboid;
+            parent          root;
+
+            // Cuboid dimensions
+            Lx              0.3;
+            Ly              0.2;
+            Lz              0.5;
+
+            // Density of the cuboid
+            rho             500;
+
+            // Cuboid mass
+            mass            #eval{ $rho*$Lx*$Ly*$Lz };
+            L               ($Lx $Ly $Lz);
+            centreOfMass    (0 0 0.25);
+            transform       (1 0 0 0 1 0 0 0 1) (0.5 0.45 0.1);
+
+            joint
+            {
+                type            composite;
+                joints
+                (
+                    {
+                        type Py;
+                    }
+                    {
+                        type Ry;
+                    }
+                );
+            }
+
+            patches         (floatingObject);
+            innerDistance   0.05;
+            outerDistance   0.35;
+        }
+    }
+}
+
+
+// ************************************************************************* //
