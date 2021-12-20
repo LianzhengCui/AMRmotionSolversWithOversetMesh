@@ -37,3 +37,4 @@ To clear the cases
 ```./Allclean```
 ## License
 This project is licensed under the GPL v3 License.
+https://github.com/LianzhengCui/AMRmotionSolversWithOversetMesh/blob/main/LICENSE
