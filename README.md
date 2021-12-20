@@ -19,3 +19,21 @@ install OpenFOAM-v2106(better) or OpenFOAM-v2012
 ```cd AMRmotionSolversWithOversetMesh```
 
 ```./Allwmake```
+## Usage
+Two tutorial cases were offered. Please refer to the files for usage.
+
+The AMRfloatingObject includes mesh motion and adaptive mesh refinement.
+
+The oversetAMRfloatingObject includes overset mesh motion and mesh refinement.
+
+Please note that the load-balancing is unavailable temporarily in this version.
+
+To run the turorial cases
+
+```./Allrun```
+
+To clear the cases
+
+```./Allclean```
+## License
+This project is licensed under the GPL v3 License.
