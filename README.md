@@ -1,7 +1,16 @@
 # AMRmotionSolversWithOversetMesh
+## description
+
 Adaptive mesh refinement for mesh motion solvers including overset mesh. 
 
-The library is based on:
+**Authours:**
+
+Lianzheng Cui lzhcui@sjtu.edu.cn
+
+Zuogang Chen  zgchen@sjtu.edu.cn
+
+
+**The library is based on:**
 
 OpenFOAM-v2106, www.openfoam.com.
 
