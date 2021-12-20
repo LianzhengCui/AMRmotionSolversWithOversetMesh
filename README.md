@@ -28,6 +28,9 @@ install OpenFOAM-v2106(better) or OpenFOAM-v2012
 ```cd AMRmotionSolversWithOversetMesh```
 
 ```./Allwmake```
+
+Please note that it is normal that some warnings may appear when compiling the "AMRmotionSolvers".
+
 ## Usage
 Two tutorial cases were offered. Please refer to the files for usage.
 
