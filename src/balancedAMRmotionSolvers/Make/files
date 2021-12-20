@@ -1,0 +1,7 @@
+dynamicMotionSolversRefineBalancedFvMesh/fvMeshDistributeAddPatch/fvMeshDistributeAddPatch.C
+dynamicMotionSolversRefineBalancedFvMesh/dynamicMotionSolversRefineBalancedFvMesh.C
+
+refinementHistoryMultiDimConstraint/refinementHistoryMultiDimConstraint.C
+
+LIB = $(FOAM_USER_LIBBIN)/libbalancedAMRmotionSolvers
+
