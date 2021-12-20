@@ -1,0 +1,10 @@
+#!/bin/sh
+cd "${0%/*}" || exit
+
+
+wmake $targetType src/AMRmotionSolvers
+wmake $targetType src/balancedAMRmotionSolvers
+wmake $targetType src/balancedAMRoverset
+wmake $targetType src/rigidBodySolidDynamics
+wmake $targetType src/rigidBodySolidMeshMotion
+wmake $targetType applications/overRefineDyMFoam
