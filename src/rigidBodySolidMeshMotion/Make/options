@@ -1,0 +1,19 @@
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/fileFormats/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/src/rigidBodySolidMeshMotion/rigidBodySolidDynamics/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/src/AMRmotionSolvers/lnInclude \
+    -I$(LIB_SRC)/functionObjects/forces/lnInclude \
+    -I$(LIB_SRC)/dynamicMesh/lnInclude
+
+LIB_LIBS = \
+    -lfiniteVolume \
+    -lmeshTools \
+    -lforces \
+    -ldynamicMesh\
+    -L$(FOAM_USER_LIBBIN) \
+    -lrigidBodySolidDynamics
+    
+ 
+ 
