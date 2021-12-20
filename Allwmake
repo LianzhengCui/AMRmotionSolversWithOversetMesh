@@ -1,6 +1,5 @@
 #!/bin/sh
-cd "${0%/*}" || exit
-
+#cd "${0%/*}" || exit
 
 wmake $targetType src/AMRmotionSolvers
 wmake $targetType src/balancedAMRmotionSolvers
