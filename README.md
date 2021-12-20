@@ -23,7 +23,7 @@ install OpenFOAM-v2106(better) or OpenFOAM-v2012
 
 ```https://www.openfoam.com/download/release-history```
 ## Installing
-```git clone https://github.com/LianzhengCui/AMRmotionSolversWithOversetMesh.git```
+```git clone https://github.com/LianzhengCui/AMRmotionSolversWithOversetMesh```
 
 ```cd AMRmotionSolversWithOversetMesh```
 
