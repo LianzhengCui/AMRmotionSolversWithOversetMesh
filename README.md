@@ -44,7 +44,7 @@ To run the turorial cases
 
 ```./Allrun```
 
-To clear the cases
+To clear the solutions
 
 ```./Allclean```
 ## License
