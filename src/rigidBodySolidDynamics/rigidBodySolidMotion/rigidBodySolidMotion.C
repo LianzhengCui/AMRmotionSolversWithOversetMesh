@@ -243,7 +243,7 @@ Foam::tmp<Foam::pointField> Foam::RBD::rigidBodySolidMotion::transformPoints
     const pointField& previousPoints
 ) const
 {
-    // Calculate the transform from the initial state in the global frame
+    // Calculate the transform from the previous state in the global frame
     // to the current state in the global frame
 	spatialTransform Xinv(X0(bodyID).inv());
 	
@@ -297,7 +297,7 @@ Foam::tmp<Foam::pointField> Foam::RBD::rigidBodySolidMotion::transformPoints
     {
      const label bodyID = bodyIDs[bi];
 
-     // Calculate the transform from the initial state in the global frame
+     // Calculate the transform from the previous state in the global frame
      // to the current state in the global frame
     spatialTransform Xinv(X0(bodyID).inv());
 	
