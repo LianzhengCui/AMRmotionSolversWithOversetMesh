@@ -108,7 +108,7 @@ const Foam::labelIOList& Foam::cellCellStencil::zoneID(const fvMesh& mesh)
     {	
         prevMeshNum = mesh.nCells();
 		
-		zoneIDPtr = new labelIOList
+	zoneIDPtr = new labelIOList
         (
             IOobject
             (
@@ -123,20 +123,20 @@ const Foam::labelIOList& Foam::cellCellStencil::zoneID(const fvMesh& mesh)
 		
         labelIOList& zonesID = *zoneIDPtr;
 		
-		const cellSet& movingSet = mesh.lookupObject<cellSet>("movingSet");		
+	const cellSet& movingSet = mesh.lookupObject<cellSet>("movingSet");		
      
         forAll(zonesID, cellI)
         {
-			if (movingSet.found(cellI))
-			{
-			   zonesID[cellI] = 1;		
-			}
-			else
-			{
-			   zonesID[cellI] = 0;
-			}        
+	    if (movingSet.found(cellI))
+	    {
+	      zonesID[cellI] = 1;		
+	    }
+	    else
+	    {
+	     zonesID[cellI] = 0;
+	    }        
         }
-	}       
+    }       
     return *zoneIDPtr;	
 }
 				
