@@ -86,11 +86,11 @@ protected:
         //- Mode type names
         static const Enum<cellType> cellTypeNames_;
 		
-		// static pointer to identified zoneID
-		static labelIOList* zoneIDPtr;
+	// static pointer to identified zoneID
+	static labelIOList* zoneIDPtr;
 		
-		//number of mesh in previous timestep
-		static label prevMeshNum;
+	//number of mesh in previous timestep
+	static label prevMeshNum;
 						
         //- Reference to the mesh
         const fvMesh& mesh_;
