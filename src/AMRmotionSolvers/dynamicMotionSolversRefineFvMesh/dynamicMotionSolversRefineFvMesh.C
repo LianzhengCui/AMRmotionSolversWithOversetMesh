@@ -968,23 +968,23 @@ Foam::dynamicMotionSolversRefineFvMesh::dynamicMotionSolversRefineFvMesh
     nRefinementIterations_(0),
     dumpLevel_(false),
     adaptCriteriaPtr_(),
-	movingSetPtr
+    movingSetPtr
     (
-        new cellSet
-	   (
+       new cellSet
+	(
           IOobject
           (
             "movingSet",
-	         facesInstance(),
+	     facesInstance(),
              polyMesh::meshSubDir,
              *this,
              IOobject::NO_READ,
              IOobject::NO_WRITE
-	       )
 	    )
-	),
-	indexMapPtr
-	( 
+	 )
+     ),
+     indexMapPtr
+     ( 
 	 new labelIOList
         (
            IOobject
@@ -1427,32 +1427,7 @@ bool Foam::dynamicMotionSolversRefineFvMesh::update()
         }
         nRefinementIterations_++;
     }
-        
-	
-				
-				
-	//update the moving cellSet
-	cellSet& movingSet = *movingSetPtr;
-	if (hasChanged && !movingSet.empty())
-	{
-		const labelIOList& cellLevel = meshCutter()->cellLevel();
-	
-        forAll(cells(), cellI)
-                {
-                    if( cellLevel[cellI] > 0 )
-                    {
-                        label parentI = meshCutter()->history().parentIndex(cellI);
-						
-						if (parentI >= 0 && movingSet.found(parentI) )
-                        {
-							movingSet.insert(cellI);		
-                        }
-                       
-                    }
-                }
-		movingSetPtr->store();
-	}
-	
+        		
     topoChanging(hasChanged);
 	
 	// update the mesh motion
