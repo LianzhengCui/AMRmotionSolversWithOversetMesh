@@ -47,6 +47,11 @@ To run the turorial cases
 To clear the solutions
 
 ```./Allclean```
+
+If you got a Permission denied from a file, type
+
+```chmod +x <name of the file>```
+
 ## License
 This project is licensed under the GPL v3 License.
 
