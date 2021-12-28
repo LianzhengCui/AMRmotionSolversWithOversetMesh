@@ -989,7 +989,7 @@ Foam::dynamicMotionSolversRefineFvMesh::dynamicMotionSolversRefineFvMesh
         (
            IOobject
            (
-	        "cellIndexMap",
+	     "cellIndexMap",
              facesInstance(),
              polyMesh::meshSubDir,
              *this,
@@ -1283,7 +1283,7 @@ bool Foam::dynamicMotionSolversRefineFvMesh::update()
         
 		labelIOList& indexCellMap = *indexMapPtr;
 		
-        if (globalData().nTotalCells() < maxCells)
+        if (globalData().nTotalCells() < 0.95 * maxCells)
         {
             // Select subset of candidates. Take into account max allowable
             // cells, refinement level, protected cells.
