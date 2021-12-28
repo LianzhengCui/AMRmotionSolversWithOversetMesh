@@ -38,13 +38,13 @@ adaptCriteria
             upperBound 0.999;
             nLayer     4;
         }
-        fluid // refLvl 2 in fluid
+        fluid 
         {
             type fieldBounds;
             fieldName alpha.water;
             lowerBound 0.001;
             upperBound 0.999;
-            maxCellLevel 2;
+            maxCellLevel 1;
         }
     );
 }
@@ -56,7 +56,7 @@ refineInterval  2;
 nBufferLayers   1;
 
 // Refine cells only up to maxRefinement levels
-maxRefinement   2;
+maxRefinement   1;
 
 // Stop refinement if maxCells reached
 maxCells        20000;
