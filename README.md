@@ -48,7 +48,7 @@ To clear the solutions
 
 ```./Allclean```
 
-If you got a Permission denied from a file, type
+If you got a Permission denied when running a file, type
 
 ```chmod +x <name of the file>```
 
