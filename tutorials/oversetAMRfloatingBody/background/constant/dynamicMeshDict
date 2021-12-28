@@ -44,7 +44,7 @@ adaptCriteria
             fieldName alpha.water;
             lowerBound 0.001;
             upperBound 0.999;
-            maxCellLevel 2;
+            maxCellLevel 1;
         }
     );
 }
@@ -56,10 +56,10 @@ refineInterval  2;
 nBufferLayers   1;
 
 // Refine cells only up to maxRefinement levels
-maxRefinement   2;
+maxRefinement   1;
 
 // Stop refinement if maxCells reached
-maxCells        800000;
+maxCells        550000;
 
 // Flux field and corresponding velocity field. Fluxes on changed
 // faces get recalculated by interpolating the velocity. Use 'none'
